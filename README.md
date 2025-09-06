@@ -45,6 +45,8 @@ Ollama API: <http://localhost:11434>
 
 * * * * *
 
+
+
 🚀 API Endpoints
 ----------------
 
@@ -150,6 +152,8 @@ Runs on: `http://localhost:5001`
 
     -   Ollama answers based on tenant configs.
 
+
+<img width="2148" height="1144" alt="image" src="https://github.com/user-attachments/assets/eb96a373-9af3-48a7-a017-5fd81279ba6c" />
 * * * * *
 
 🔧 Notes
