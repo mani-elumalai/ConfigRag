@@ -1,0 +1,70 @@
+@ConfigRag_HostAddress = http://localhost:5257
+
+GET {{ConfigRag_HostAddress}}/weatherforecast/
+Accept: application/json
+###
+
+POST {{ConfigRag_HostAddress}}/tenants/ingest
+Content-Type: application/json
+
+{
+  "tenantId": "TenantA",
+  "config": {
+    "region": "us-east-1",
+    "billing": "enterprise",
+    "features": [
+      "chat",
+      "analytics",
+      "SSO"
+    ],
+    "limits": {
+      "users": 1000,
+      "storage": "500GB"
+    }
+  }
+}
+
+###
+POST {{ConfigRag_HostAddress}}/tenants/ingest
+Content-Type: application/json
+
+{
+  "tenantId": "TenantB",
+  "config": {
+    "region": "us-east-1",
+    "billing": "personal",
+    "features": [
+      "analytics",
+      "SSO"
+    ],
+    "limits": {
+      "users": 12,
+      "storage": "100GB"
+    }
+  }
+}
+###
+# curl -X POST http://localhost:5000/tenants/ask 
+#  -H "Content-Type: application/json" 
+#  -d '{ "question": "Which tenants have SSO enabled but are not enterprise?" }'
+POST {{ConfigRag_HostAddress}}/tenants/ask
+Content-Type: application/json
+
+{
+  "question": "Which tenants have SSO enabled but are not enterprise?"
+}
+
+###
+
+POST {{ConfigRag_HostAddress}}/tenants/ask-stream
+Content-Type: application/json
+
+{
+  "question": "Which tenants have SSO enabled but are not enterprise?"
+}
+
+###
+
+
+
+###
